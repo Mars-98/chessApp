@@ -2,3 +2,5 @@
 /shelf/
 /workspace.xml
 /.idea
+/.vscode
+/chess-ui/__pycache__

@@ -1,5 +1,6 @@
-import pygame, sys
-
+import pygame
+import sys
+from scoreboard import chessScoreboard
 
 class chessWindow:
     pygame.init()
@@ -8,6 +9,7 @@ class chessWindow:
         window = pygame.display.set_mode((800, 650))
         pygame.display.set_caption("chessApp")
         window.fill((128, 0, 0))
+        chessScoreboard.createscoreboard(window)
 
         play_game = True
 
