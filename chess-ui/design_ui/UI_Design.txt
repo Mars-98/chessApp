@@ -1,0 +1,126 @@
+window.py
+    window to make game
+    call to get chessboard.py
+    call to get scoreboard.py
+    call to get names.py for each player's name
+    call to get white_pieces.py
+    call to get black_pieces.py
+    Then start game, and based on events, allow the user to do stuff:
+        pick up piece
+        place piece
+        check if piece is on top of another piece
+    For the moment, teleport piece to position once placed. Possibly make animation.
+
+chessboard.py
+    chessboard interface
+
+scoreboard.py
+    scoreboard interface
+    make a call to api to get how many games someone has won
+
+names.py
+    each player's name
+    
+white_pieces.py
+    This is a collection of all the pieces that are colored white
+    Calls each piece (i.e pawn, queen, king, etc)
+
+black_pieces.py
+    This is a collection of all the pieces that are colored black
+    Calls each piece (i.e pawn, queen, king, etc)
+
+Pieces (folder): Talk to API about whether we should calculate the positions on placement of piece or not.
+    pawn.py
+        __init__():
+            "image" of what the piece looks like
+        onPickUp((x,y): tuple): List[tuple]
+            gets where the piece currently exists
+            Makes calls to the api for where it can move
+            Returns list of where the piece can move
+        onPlacement((x,y): tuple): boolean
+            Gets where the piece is going to exist
+            If it cannot move there, return false
+            Makes a call to place its new position, then return true
+        onCapture(): void
+            Deletes it from the board
+            Placement is now None
+        
+
+    rook.py
+        __init__():
+            "image" of what the piece looks like
+        onPickUp((x,y): tuple): List[tuple]
+            gets where the piece currently exists
+            Makes calls to the api for where it can move
+            Returns list of where the piece can move
+        onPlacement((x,y): tuple): boolean
+            Gets where the piece is going to exist
+            If it cannot move there, return false
+            Makes a call to place its new position, then return true
+        onCapture(): void
+            Deletes it from the board
+            Placement is now None
+        
+
+    bishop.py
+        __init__():
+            "image" of what the piece looks like
+        onPickUp((x,y): tuple): List[tuple]
+            gets where the piece currently exists
+            Makes calls to the api for where it can move
+            Returns list of where the piece can move
+        onPlacement((x,y): tuple): boolean
+            Gets where the piece is going to exist
+            If it cannot move there, return false
+            Makes a call to place its new position, then return true
+        onCapture(): void
+            Deletes it from the board
+            Placement is now None
+        
+
+    knight.py
+        __init__():
+            "image" of what the piece looks like
+        onPickUp((x,y): tuple): List[tuple]
+            gets where the piece currently exists
+            Makes calls to the api for where it can move
+            Returns list of where the piece can move
+        onPlacement((x,y): tuple): boolean
+            Gets where the piece is going to exist
+            If it cannot move there, return false
+            Makes a call to place its new position, then return true
+        onCapture(): void
+            Deletes it from the board
+            Placement is now None
+        
+
+    queen.py
+        __init__():
+            "image" of what the piece looks like
+        onPickUp((x,y): tuple): List[tuple]
+            gets where the piece currently exists
+            Makes calls to the api for where it can move
+            Returns list of where the piece can move
+        onPlacement((x,y): tuple): boolean
+            Gets where the piece is going to exist
+            If it cannot move there, return false
+            Makes a call to place its new position, then return true
+        onCapture(): void
+            Deletes it from the board
+            Placement is now None
+        
+
+    king.py
+        __init__():
+            "image" of what the piece looks like
+        onPickUp((x,y): tuple): List[tuple]
+            gets where the piece currently exists
+            Makes calls to the api for where it can move
+            Returns list of where the piece can move
+        onPlacement((x,y): tuple): boolean
+            Gets where the piece is going to exist
+            If it cannot move there, return false
+            Makes a call to place its new position, then return true
+        onCapture(): void
+            Deletes it from the board
+            Placement is now None
