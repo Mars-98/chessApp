@@ -1,6 +1,6 @@
 import pygame
 
-
+# this is a scoreboard
 class chessScoreboard:
 
     def createscoreboard(window):
