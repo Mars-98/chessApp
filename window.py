@@ -18,5 +18,6 @@ class chessWindow:
                     play_game = False
             pygame.display.flip()
 
+
     if __name__ == "__main__":
         createwindow()
