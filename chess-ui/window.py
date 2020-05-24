@@ -1,12 +1,11 @@
-import pygame
-import sys
+import pygame, sys
 from scoreboard import chessScoreboard
 
-# class of the window
+# creates window for chess
 class chessWindow:
     pygame.init()
 
-    # fun for creating window and calling other funs (e.i. scoreboard) inside the window
+    # function for creating window and calling other functions (e.i. scoreboard) inside the window
     # components are made in order, window must be first then scoreboard, etc.
     def createwindow():
         window = pygame.display.set_mode((600, 600))

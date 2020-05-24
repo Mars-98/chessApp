@@ -1,6 +1,6 @@
 import pygame
 
-# this is a scoreboard
+# creates scoreboard for chess window
 class chessScoreboard:
 
     # fun for creating the scoreboard rect: (window, (color RGB), ((placement x, y), (width, height)))
