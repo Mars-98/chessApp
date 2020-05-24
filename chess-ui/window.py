@@ -2,11 +2,14 @@ import pygame
 import sys
 from scoreboard import chessScoreboard
 
+# class of the window
 class chessWindow:
     pygame.init()
 
+    # fun for creating window and calling other funs (e.i. scoreboard) inside the window
+    # components are made in order, window must be first then scoreboard, etc.
     def createwindow():
-        window = pygame.display.set_mode((800, 650))
+        window = pygame.display.set_mode((600, 600))
         pygame.display.set_caption("chessApp")
         window.fill((128, 0, 0))
         chessScoreboard.createscoreboard(window)
