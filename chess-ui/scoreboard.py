@@ -4,6 +4,8 @@ import pygame
 class chessScoreboard:
     player1 = ''
     player2 = ''
+    player1_score = 0
+    player2_score = 0
 
     # Make the scoreboard with given player names
     def __init__(self, player1, player2):
@@ -24,8 +26,8 @@ class chessScoreboard:
         self.makePlayerName(window, 15, self.player2, (0, 0, 0), (128, 128, 128), (540, 62))
         self.scoreDisplay(window, (0, 0, 0), (447, 73), (40, 40))
         self.scoreDisplay(window, (0, 0, 0), (517, 73), (40, 40))
-        self.makePlayerName(window, 20, str(0), (255, 0, 0), (0, 0, 0), (467, 93))
-        self.makePlayerName(window, 20, str(0), (255, 0, 0), (0, 0, 0), (537, 93))
+        self.makePlayerName(window, 20, str(self.player1_score), (255, 0, 0), (0, 0, 0), (467, 93))
+        self.makePlayerName(window, 20, str(self.player2_score), (255, 0, 0), (0, 0, 0), (537, 93))
 
     # Makes text for the player name and their score
     def makePlayerName(self, window, font_size, player_name, font_color, box_color, placement):
