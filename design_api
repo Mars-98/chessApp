@@ -14,7 +14,7 @@ Piece.py
         - points: int
         - color: string
         - current location: depends on how we determine grid
-        - in_play (In play or not): // Use a de-constructor instead of setting the variable to boolean value
+        //- in_play (In play or not): // Use a de-constructor instead of setting the variable to boolean value//
         - move_count(specifically for pawns on their first move, and castling the rook and king)
 
     move_loc(): abstract method
@@ -40,7 +40,6 @@ pawn.py
         - points: int
         - color: string
         - current location: depends on how we determine grid
-        - in_play (In play or not):
         - move_count(specifically for pawns on their first move, and castling the rook and king)
 
     move_loc(): tuple (list of locations the piece can move to) - override
@@ -63,7 +62,6 @@ bishop.py
         - points: int
         - color: string
         - current location: depends on how we determine grid
-        - in_play (In play or not):
         - move_count(specifically for pawns on their first move, and castling the rook and king)
 
     move_loc(): tuple (list of locations the piece can move to) - override
@@ -75,7 +73,6 @@ knight.py
         - points: int
         - color: string
         - current location: depends on how we determine grid
-        - in_play (In play or not):
         - move_count(specifically for pawns on their first move, and castling the rook and king)
 
     move_loc(): void - override
@@ -87,7 +84,6 @@ rook.py
         - points: int
         - color: string
         - current location: depends on how we determine grid
-        - in_play (In play or not):
         - move_count(specifically for rook on their first move, and castling the rook and king)
 
     move_loc(): tuple (list of locations the piece can move to) - override
@@ -103,7 +99,6 @@ queen.py
         - points: int
         - color: string
         - current location: depends on how we determine grid
-        - in_play (In play or not):
         - move_count(specifically for pawns on their first move, and castling the rook and king)
 
     move_loc(): tuple (list of locations the piece can move to) - override
@@ -114,7 +109,6 @@ king.py
         - points: int
         - color: string
         - current location: depends on how we determine grid
-        - in_play (In play or not):
         - move_count(specifically for pawns on their first move, and castling the rook and king)
 
     move_loc(): tuple (list of locations the piece can move to) - override
