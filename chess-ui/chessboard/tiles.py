@@ -1,7 +1,9 @@
 import pygame
 from .tile import Tile
 
+# Creates the Tiles of the chessboard
 class Tiles:
+    # 2d Map where each element is a Tile
     tile_map = None
     
     # Constructor for tiles that specifically makes all of the tiles that reside inside of tile map
