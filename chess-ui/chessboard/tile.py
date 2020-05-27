@@ -18,7 +18,7 @@ class Tile(Sprite):
     rectangle = None
 
     # Size of the tile
-    tile_size = 30
+    tile_size = 0
 
     # Placement of the lower right corner of the board based on tile_size.
     # Starts with middle of window. I divide by 2.25 because of maths I guess.
@@ -31,6 +31,7 @@ class Tile(Sprite):
         self.color = color
         self.parent_link = parent_link
         self.piece_here = piece_here
+        self.tile_size = pygame.display.get_surface().get_height()/17
         self.window_size = (pygame.display.get_surface().get_height()/2.25) + (self.tile_size*4)
         self.rectangle = self.__setRectangle(window)
 
@@ -39,4 +40,3 @@ class Tile(Sprite):
         length, width = self.parent_link
         return pygame.draw.rect(window, self.color, 
             ((self.window_size-length*self.tile_size, self.window_size-width*self.tile_size),(self.tile_size, self.tile_size)))
-            

@@ -3,7 +3,6 @@ from .tile import Tile
 
 class Tiles:
     tile_map = None
-    distance_from_center = 300
     
     # Constructor for tiles that specifically makes all of the tiles that reside inside of tile map
     def __init__(self, window):
