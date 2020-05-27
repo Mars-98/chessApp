@@ -1,6 +1,6 @@
 import pygame, sys
 from scoreboard import chessScoreboard
-from chessboard.chessboard import Board
+from chessboard_parts.chessboard import Board
 
 # creates window for chess
 class chessWindow:
