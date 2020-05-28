@@ -1,6 +1,6 @@
 import pygame
-from tiles import Tiles
-from pieces import Pieces
+from .tiles import Tiles
+from .pieces import Pieces
 
 # Creates the chessboard
 class Board:
