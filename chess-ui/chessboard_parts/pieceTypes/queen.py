@@ -1,5 +1,6 @@
 import pygame
 from pygame.sprite import Sprite
+import os
 
 class Queen(Sprite):
     placement = (0,0)
@@ -12,6 +13,10 @@ class Queen(Sprite):
         self.color_black = color_black
         self.piece_size = pygame.display.get_surface().get_height()/14
         if color_black:
-            pygame.image.load("/Users/Connor/Downloads/bit_pieces/chess_piece_2_black_queen.bmp")
+            script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+            rel_path = "../bit_pieces/chess_piece_2_black_queen.bmp"
+            os.path.join(script_dir, rel_path)
         else:
-            pygame.image.load("/Users/Connor/Downloads/bit_pieces/chess_piece_2_white_queen.bmp")
+            script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+            rel_path = "../bit_pieces/chess_piece_2_white_queen.bmp"
+            os.path.join(script_dir, rel_path)
