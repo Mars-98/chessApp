@@ -1,7 +1,9 @@
-import pygame
+import pygame, sys
 
 
 class Get_names:
+    pygame.init()
+    #pygame.quit()
 
     def addText(self):
         window = pygame.display.set_mode((600, 600))
@@ -68,5 +70,3 @@ class Get_names:
         text_rect.center = placement
         window.blit(text, text_rect)
 
-    pygame.init()
-    pygame.quit()
