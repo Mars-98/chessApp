@@ -23,10 +23,10 @@ class Piece(ABC):
         # each piece has its own movement rules cannot move through its own piece(except for the knight)
         pass
 
-    def capture(my_piece, enemy_piece):
-        if not my_piece.color == enemy_piece.color:
-            my_piece.curr_loc = enemy_piece.curr_loc
+    def capture(self, enemy_piece):
+        if not self.color == enemy_piece.color:
+            self.curr_loc = enemy_piece.curr_loc
             enemy_piece.curr_loc = None
-            my_piece.totalPieces -= 1
+            self.totalPieces -= 1
 
-        return my_piece.totalPieces
+        return  self.totalPieces
