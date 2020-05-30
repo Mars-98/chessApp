@@ -2,17 +2,19 @@ from abc import ABC, abstractmethod
 
 
 class Piece(ABC):
+    totalPieces = 16
+
     def __init__(self, piece_move_cnt, piece_points, piece_color, piece_curr_loc):
         self.move_count = piece_move_cnt
         self.points = piece_points
         self.color = piece_color
         self.curr_loc = piece_curr_loc
 
-    def __del__(self, piece_move_cnt, piece_points, piece_color, piece_crnt_loc):
+    def __del__(self, piece_move_cnt, piece_points, piece_color, piece_curr_loc):
         del piece_move_cnt
         del piece_points
         del piece_color
-        del piece_crnt_loc
+        del piece_curr_loc
 
     @abstractmethod
     def move_loc(self, location, type, player):
@@ -22,10 +24,11 @@ class Piece(ABC):
 
     def move(self, new_loc, piece):
         piece.curr_loc = new_loc
-        return
 
     def capture(self, my_piece, enemy_piece):
         if not my_piece.color == enemy_piece.color:
             my_piece.curr_loc = enemy_piece.curr_loc
             enemy_piece.curr_loc = None
-        return
+            global totalPieces
+            totalPieces = totalPieces - 1
+        return totalPieces
