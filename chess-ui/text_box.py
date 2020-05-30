@@ -8,11 +8,11 @@ class Get_names:
     def addText(self):
         window = pygame.display.set_mode((600, 600))
         pygame.display.set_caption("chessApp")
-        font = pygame.font.Font(None, 32)
+        font = pygame.font.Font(None, 28)
         clock = pygame.time.Clock()
-        input_box = pygame.Rect(100, 100, 140, 32)
+        input_box = pygame.Rect(100, 275, 200, 32)
         color_inactive = pygame.Color('lightskyblue3')
-        color_active = pygame.Color('grey')
+        color_active = pygame.Color('black')
         color = color_inactive
         active = False
         text = ''
@@ -43,6 +43,8 @@ class Get_names:
 
             window.fill((128, 0, 0))
             self.rectDisplay(window, (128, 128, 128), (80, 80), (450, 450))
+            self.rectDisplay(window, (255, 255, 255), (100, 275), (200, 32))
+            self.displayPlayertext(window, 22, ("Player 1"), (0, 0, 0), (128, 128, 128), (150, 260))
             self.rectDisplay(window, (0, 0, 0), (95, 90), (420, 120))
             self.displayPlayertext(window, 30, ("Enter your names"), (255, 0, 0), (0, 0, 0), (305, 150))
             # Render the current text.
