@@ -1,0 +1,122 @@
+@@ -0,0 +1,126 @@
+    Tims' Word's of Wisdom:
+        - sends a location of piece and which player, and piece type and returns a list of tuples in x,y format that
+          shows where the pieces can go
+        - No need to check if we can move to a certain location, we can keep track of a list of locations that the piece can go,
+          and the ui will return the new location of the current piece
+        - file for player names and scores
+        - first move method shows location of where the current piece can move to, a tuple of locations
+        - second move method is for actually moving piece
+
+Tuples return format: {type, {location(x,y)}, color} -> (0, 1(x=0,y=1), 2)
+
+Pieces (folder): Talk to API about whether we should calculate the positions on placement of piece or not.
+Piece.py
+    __init__():
+        - points: int
+        - color: string
+        - current location: depends on how we determine grid
+        //- in_play (In play or not): // Use a de-constructor instead of setting the variable to boolean value//
+        - move_count(specifically for pawns on their first move, and castling the rook and king)
+
+    move_loc(): abstract method
+    //comments
+        player can only move when it his/her turn
+        first checks if king is in check:
+        each piece has its own movement rules
+        cannot move through its own piece(except for the knight)
+
+     move():
+        - move the current piece to the captured pieces location or empty location
+
+    capture(my_piece, enemy_piece): boolean
+        cannot kill own color
+        piece can take the place of the current enemy piece
+            - sets location of current piece to piece that is captures
+            - set capture piece location to Null
+
+
+pawn.py
+    __init__():
+        - points: int
+        - color: string
+        - current location: depends on how we determine grid
+        - move_count(specifically for pawns on their first move, and castling the rook and king)
+
+    move_loc(): tuple (list of locations the piece can move to) - override
+        check pawns move_count
+            pawns can move 1 or 2 spaces forward on first move
+            otherwise pawns can only move 1 space forward except on kill
+            in which they can only kill one space diagonally
+
+    promotion()void
+        if pawn reaches the other side of the board
+        pawn can be replaced with the following pieces: bishop, knight, rook, and queen
+        current location stays the same
+        remove current pawn from play
+
+    en_passant()void
+        special move to be defined later
+
+bishop.py
+    __init__():
+        - points: int
+        - color: string
+        - current location: depends on how we determine grid
+        - move_count(specifically for pawns on their first move, and castling the rook and king)
+
+    move_loc(): tuple (list of locations the piece can move to) - override
+        bishop can move diagonally in all directions
+
+
+knight.py
+    __init__():
+        - points: int
+        - color: string
+        - current location: depends on how we determine grid
+        - move_count(specifically for pawns on their first move, and castling the rook and king)
+
+    move_loc(): void - override
+       moves in L: 3 horizonal & 1 vertical spaces or 3 vertical & 1 horizonal spaces
+            - can move through pieces
+
+rook.py
+    __init__():
+        - points: int
+        - color: string
+        - current location: depends on how we determine grid
+        - move_count(specifically for rook on their first move, and castling the rook and king)
+
+    move_loc(): tuple (list of locations the piece can move to) - override
+        check rook move_count
+            castling
+                if rook and king both have move count == 0
+                cannot have pieces in between the two pieces
+                king cannot be in check
+                king can castle on both sides
+
+queen.py
+    __init__():
+        - points: int
+        - color: string
+        - current location: depends on how we determine grid
+        - move_count(specifically for pawns on their first move, and castling the rook and king)
+
+    move_loc(): tuple (list of locations the piece can move to) - override
+        queen can move as many vacant spaces vertically and diagonally
+
+king.py
+    __init__():
+        - points: int
+        - color: string
+        - current location: depends on how we determine grid
+        - move_count(specifically for pawns on their first move, and castling the rook and king)
+
+    move_loc(): tuple (list of locations the piece can move to) - override
+       castling
+                kings movement is what triggers the castle
+                if rook and king both have move count == 0
+                cannot have pieces in between the two pieces
+                king cannot be in check
+                king can castle on both sides
+     king can move one vacant space in all directions
