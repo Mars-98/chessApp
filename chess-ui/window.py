@@ -3,12 +3,12 @@ from scoreboard import chessScoreboard
 from chessboard_parts.chessboard import Board
 
 # creates window for chess
-class chessWindow:
+class ChessWindow:
     pygame.init()
 
     # function for creating window and calling other functions (e.i. scoreboard) inside the window
     # components are made in order, window must be first then scoreboard, etc.
-    def createwindow():
+    def createWindow():
         window = pygame.display.set_mode((600, 600))
         pygame.display.set_caption("chessApp")
         window.fill((128, 0, 0))
