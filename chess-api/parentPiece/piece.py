@@ -11,11 +11,12 @@ class Piece(ABC):
         self.curr_loc = piece_curr_loc
         self.first_move = piece_first_move
 
-    def __del__(self, piece_move_cnt, piece_points, piece_color, piece_curr_loc):
+    def __del__(self, piece_move_cnt, piece_points, piece_color, piece_curr_loc, piece_first_move):
         del piece_move_cnt
         del piece_points
         del piece_color
         del piece_curr_loc
+        del piece_first_move
 
     @abstractmethod
     def move_loc(self, location, type, player):
@@ -29,4 +30,4 @@ class Piece(ABC):
             enemy_piece.curr_loc = None
             self.totalPieces -= 1
 
-        return  self.totalPieces
+        return self.totalPieces
