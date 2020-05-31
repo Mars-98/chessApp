@@ -12,19 +12,26 @@ class Pieces:
     piece_map = None
     
     # Constructor for tiles that specifically makes all of the tiles that reside inside of tile map
-    def __init__(self, window):
+    def __init__(self, window, tile_size, board_size):
         self.piece_map = pygame.sprite.Group()
-        self.__make_pieces(window, True)
-        self.__make_pieces(window, False)
+        self.__make_pieces(window, tile_size, board_size, True)
+        self.__make_pieces(window, tile_size, board_size, False)
 
-    def __make_pieces(self, window, color_black):
+    # Private method to initially make the pieces
+    def __make_pieces(self, window, tile_size, board_size, color_black):
         colored_pieces = pygame.sprite.Group()
         for index in range(8):
-            colored_pieces.add(Pawn(window, index, color_black))
-        for index in range(2):
-            colored_pieces.add(Rook(window, index, color_black))
-            colored_pieces.add(Knight(window, index, color_black))
-            colored_pieces.add(Bishop(window, index, color_black))
-            colored_pieces.add(Queen(window, index, color_black))
-            colored_pieces.add(King(window, index, color_black))
+            colored_pieces.add(Pawn(window, index, tile_size, board_size, color_black))
+        colored_pieces.add(Rook(window, 0, tile_size, board_size, color_black))
+        colored_pieces.add(Knight(window, 1, tile_size, board_size, color_black))
+        colored_pieces.add(Bishop(window, 2, tile_size, board_size, color_black))
+        if color_black:
+            colored_pieces.add(Queen(window, 3, tile_size, board_size, color_black))
+            colored_pieces.add(King(window, 4, tile_size, board_size, color_black))
+        else:
+            colored_pieces.add(King(window, 3, tile_size, board_size, color_black))
+            colored_pieces.add(Queen(window, 4, tile_size, board_size, color_black))
+        colored_pieces.add(Bishop(window, 5, tile_size, board_size, color_black))
+        colored_pieces.add(Knight(window, 6, tile_size, board_size, color_black))
+        colored_pieces.add(Rook(window, 7, tile_size, board_size, color_black))
         self.piece_map.add(colored_pieces)

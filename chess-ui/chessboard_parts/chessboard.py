@@ -11,6 +11,7 @@ class Board:
     # Constructor for chessboard of tiles and (later) pieces
     def __init__(self, window):
         self.tile_board = Tiles(window)
-        self.pieces = Pieces(window)
+        self.pieces = Pieces(window, 
+            self.tile_board.tile_map.sprites()[0].tile_size, self.tile_board.tile_map.sprites()[0].window_size)
 
 
