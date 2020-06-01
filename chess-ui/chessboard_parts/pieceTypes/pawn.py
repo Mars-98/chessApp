@@ -35,7 +35,6 @@ class Pawn(Sprite):
         self.piece_size = pygame.display.get_surface().get_height()/18
         self.tile_size = tile_size
         self.board_size = board_size
-
         if color_black:
             row = 1 
             script_dir = os.path.dirname(__file__)
@@ -51,7 +50,6 @@ class Pawn(Sprite):
         for tile in tile_links:
             if (column, row) == tile.parent_link:
                 tile.piece_here = self
-                self.tile_underneath = tile
 
     # Used for placing and moving a Pawn to a specific pixel place
     def piecePlacement(self, window, column, row):
@@ -61,3 +59,4 @@ class Pawn(Sprite):
     def recreate(self, window):
         column, row  = self.placement
         self.rectangle_placement = window.blit(self.image, (self.board_size-column*self.tile_size, self.board_size-row*self.tile_size))
+
