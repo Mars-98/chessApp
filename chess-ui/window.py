@@ -16,8 +16,11 @@ class ChessWindow:
         scoreboard_display.createScoreboard(window)
         board = Board(window)
         tiles = board.tile_board.tile_map
-
+        pieces = board.pieces.piece_map
+        
         play_game = True
+        clicked_once = False
+        current_piece = None
 
         # Loop for creating and exiting the window
         while play_game:
@@ -28,16 +31,35 @@ class ChessWindow:
                     pos = pygame.mouse.get_pos()
 
                     # get a list of all sprites that are under the mouse cursor
-                    clicked_tiles = [tile for tile in tiles if tile.rectangle.collidepoint(pos)]
-                    for sprite in clicked_tiles:
-                        print(sprite.parent_link)
-                        pass
-                        # TEMPORARY: Here we will later make check for what tile the player is choosing it.
-                        # The tile of the sprite is save in parent_link.
-                        # Refer to the ChessboardIndexing.png in the design_ui folder
-
-                    # LATER: This is where we will check the type of the piece to see which one it is.
-                    # We can check this via checking the type of a Sprite.
-                    # This will be done when the parent Piece class and its respective children are made.
+                    clicked_tile = ChessWindow.getTileSprite(pos, tiles)
+                    clicked_piece = ChessWindow.getPieceSprite(pos, pieces)
                     
+                    if clicked_tile and clicked_piece:
+                        column, row = clicked_tile.parent_link
+                        # Current dummy values below until the api has the calls for each piece
+                        potentential_moves = [(column, row + 1), (column + 1, row)]
+                        if clicked_once and clicked_piece is current_piece:
+                            for tile in tiles:
+                                if tile.parent_link in potentential_moves:
+                                    tile.newColor(window, tile.original_color)
+                            clicked_once = False
+                            current_piece = None
+
+                        elif not clicked_once and current_piece is None:
+                            for tile in tiles:
+                                if tile.parent_link in potentential_moves:
+                                    tile.newColor(window, (0, 0, 255))
+                            clicked_once = True
+                            current_piece = clicked_piece
+
             pygame.display.flip()
+
+    def getTileSprite(position, tiles):
+        for tile in tiles:
+            if tile.rectangle.collidepoint(position):
+                return tile
+    
+    def getPieceSprite(position, pieces):
+        for piece in pieces:
+            if piece.rectangle_placement.collidepoint(position):
+                return piece
