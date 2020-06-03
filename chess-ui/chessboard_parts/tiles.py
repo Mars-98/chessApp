@@ -6,6 +6,9 @@ class Tiles:
     # 2d Map where each element is a Tile
     tile_map = None
 
+    # Dictionary of the tiles as a key of the location tuple and a value of the tile object
+    tile_dict = {}
+
     # All the initial tiles where the pieces will be placed
     pieces_on_tiles = None
     
@@ -19,6 +22,7 @@ class Tiles:
             for column in range(8):
                 tile_square = Tile((0, 0, 0), (column, row), window) if color_black else Tile((255, 255, 255), (column, row), window)
                 color_black = not color_black
+                self.tile_dict[tile_square.parent_link] = tile_square
                 row_sprites.add(tile_square)
             color_black = not color_black
             self.tile_map.add(row_sprites)
