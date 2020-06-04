@@ -17,8 +17,8 @@ class Piece(ABC):
         del piece_curr_loc
 
     @abstractmethod
-    def move_loc(self, location, type, tiles):
-        # player can only move when it his/her turn first checks if king is in check:
+    def move_loc(self, location, piece, tiles):
+        # player can only move when it his/her turn. First checks if king is in check:
         # each piece has its own movement rules cannot move through its own piece(except for the knight)
         pass
 
