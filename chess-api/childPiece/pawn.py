@@ -25,7 +25,6 @@ class Pawn(Piece):
 
         loc_list = self.__add_loc_up(y_1, x, loc_list, tiles)  # UP 1
 
-        piece.first_move = True
 
         return loc_list
 
