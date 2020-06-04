@@ -32,6 +32,8 @@ class Rook(Piece):
         loc_list = self.__add_H_left(y_H, x_H_left, piece, loc_list, tiles)  # Horizontal left: Y, X + 1
         loc_list = self.__add_H_right(y_H, x_H_right, piece, loc_list, tiles)  # Horizontal right: Y, X - 1
 
+        piece.first_move = True
+
         return loc_list
 
     # Vertical up: Y + 1, X
