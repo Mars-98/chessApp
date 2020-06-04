@@ -38,7 +38,7 @@ class King(Piece):
         x_H_right = location[1] - 1
         loc_list = self.add_loc(y_H_right, x_H_right, piece, loc_list, tile)
 
-        return self.loc_list
+        return loc_list
 
     # Private helper method that is used in move_loc only
     # Takes in (y,x) coordinates or (column,row), as well as the piece, a location list, and a single tile
