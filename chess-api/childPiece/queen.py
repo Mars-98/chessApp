@@ -26,10 +26,10 @@ class Queen(Piece):
         loc_list = self.__add_negDiag_left(y_down, x_left, piece, loc_list,
                                            tiles)  # Diagonal negative left: Y - 1, X + 1
 
-        loc_list = self.__add_V_up(y_up, x, piece, loc_list, tiles)  # Vertical up: Y + 1, X
-        loc_list = self.__add_V_down(y_down, x, piece, loc_list, tiles)  # Vertical down: Y - 1, X
-        loc_list = self.__add_H_left(y, x_left, piece, loc_list, tiles)  # Horizontal left: Y, X + 1
-        loc_list = self.__add_H_right(y, x_right, piece, loc_list, tiles)  # Horizontal right: Y, X - 1
+        loc_list = self.__add_up(y_up, x, piece, loc_list, tiles)  # Vertical up: Y + 1, X
+        loc_list = self.__add_down(y_down, x, piece, loc_list, tiles)  # Vertical down: Y - 1, X
+        loc_list = self.__add_left(y, x_left, piece, loc_list, tiles)  # Horizontal left: Y, X + 1
+        loc_list = self.__add_right(y, x_right, piece, loc_list, tiles)  # Horizontal right: Y, X - 1
 
         return loc_list
 
@@ -93,7 +93,7 @@ class Queen(Piece):
         return loc_list
 
     # Vertical up: Y + 1, X
-    def __add_V_up(self, x, y_up, piece, tiles, loc_list):
+    def __add_up(self, x, y_up, piece, tiles, loc_list):
         while x == range(0, 8) or y_up == range(0, 8):  # in range method, 0 is inclusive and 1 is exclusive
             tile = tiles.get((y_up, x))
             if tile:
@@ -106,7 +106,7 @@ class Queen(Piece):
         return loc_list
 
     # Vertical down: Y - 1, X
-    def __add_V_down(self, x, y_down, piece, tiles, loc_list):
+    def __add_down(self, x, y_down, piece, tiles, loc_list):
         while x == range(0, 8) or y_down == range(0, 8):  # in range method, 0 is inclusive and 1 is exclusive
             tile = tiles.get((y_down, x))
             if tile:
@@ -119,7 +119,7 @@ class Queen(Piece):
         return loc_list
 
     # Horizontal left: Y, X + 1
-    def __add_H_left(self, x_left, y, piece, tiles, loc_list):
+    def __add_left(self, x_left, y, piece, tiles, loc_list):
         while x_left == range(0, 8) or y == range(0, 8):  # in range method, 0 is inclusive and 1 is exclusive
             tile = tiles.get((y, x_left))
             if tile:
@@ -132,7 +132,7 @@ class Queen(Piece):
         return loc_list
 
     # Horizontal right: Y, X - 1
-    def __add_H_right(self, x_right, y, piece, tiles, loc_list):
+    def __add_right(self, x_right, y, piece, tiles, loc_list):
         while x_right == range(0, 8) or y == range(0, 8):  # in range method, 0 is inclusive and 1 is exclusive
             tile = tiles.get((y, x_right))
             if tile:
