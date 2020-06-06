@@ -39,11 +39,11 @@ class Queen(Sprite):
         if color_black:
             row = 0
             script_dir = os.path.dirname(__file__)
-            rel_path = "../bit_pieces/chess_piece_2_black_queen.bmp"
+            rel_path = "../chess_pieces_bitmap/black_queen.bmp"
         else:
             row = 7
             script_dir = os.path.dirname(__file__)
-            rel_path = "../bit_pieces/chess_piece_2_white_queen.bmp"
+            rel_path = "../chess_pieces_bitmap/white_queen.bmp"
         self.image = pygame.image.load(os.path.join(script_dir, rel_path))
         self.image = pygame.transform.scale(self.image, (int(self.piece_size), int(self.piece_size)))
         self.piecePlacement(window, column, row)

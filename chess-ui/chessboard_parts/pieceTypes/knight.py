@@ -39,11 +39,11 @@ class Knight(Sprite):
         if color_black:
             row = 0
             script_dir = os.path.dirname(__file__)
-            rel_path = "../bit_pieces/chess_piece_2_black_knight.bmp"
+            rel_path = "../chess_pieces_bitmap/black_knight.bmp"
         else:
             row = 7 
             script_dir = os.path.dirname(__file__)
-            rel_path = "../bit_pieces/chess_piece_2_white_knight.bmp"
+            rel_path = "../chess_pieces_bitmap/white_knight.bmp"
         self.image = pygame.image.load(os.path.join(script_dir, rel_path))
         self.image = pygame.transform.scale(self.image, (int(self.piece_size), int(self.piece_size)))
         self.piecePlacement(window, column, row)
