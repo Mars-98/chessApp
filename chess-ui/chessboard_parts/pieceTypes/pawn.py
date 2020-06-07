@@ -38,11 +38,11 @@ class Pawn(Sprite):
         if color_black:
             row = 1 
             script_dir = os.path.dirname(__file__)
-            rel_path = "../bit_pieces/chess_piece_2_black_pawn.bmp"
+            rel_path = "../chess_pieces_bitmap/black_pawn.bmp"
         else:
             row = 6
             script_dir = os.path.dirname(__file__)
-            rel_path = "../bit_pieces/chess_piece_2_white_pawn.bmp"
+            rel_path = "../chess_pieces_bitmap/white_pawn.bmp"
         self.image = pygame.image.load(os.path.join(script_dir, rel_path))
         self.image = pygame.transform.scale(self.image, (int(self.piece_size), int(self.piece_size)))
         self.piecePlacement(window, column, row)

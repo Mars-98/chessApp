@@ -20,7 +20,7 @@ class Tiles:
         for row in range(8):
             row_sprites = pygame.sprite.Group()
             for column in range(8):
-                tile_square = Tile((0, 0, 0), (column, row), window) if color_black else Tile((255, 255, 255), (column, row), window)
+                tile_square = Tile((255, 248, 220), (column, row), window) if color_black else Tile((139, 69, 19), (column, row), window)
                 color_black = not color_black
                 self.tile_dict[tile_square.parent_link] = tile_square
                 row_sprites.add(tile_square)
