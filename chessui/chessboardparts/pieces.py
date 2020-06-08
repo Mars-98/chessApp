@@ -1,10 +1,10 @@
 import pygame
-from .pieceTypes.pawn import Pawn
-from .pieceTypes.rook import Rook
-from .pieceTypes.knight import Knight
-from .pieceTypes.bishop import Bishop
-from .pieceTypes.queen import Queen
-from .pieceTypes.king import King
+from .piecetypes.pawn import Pawn
+from .piecetypes.rook import Rook
+from .piecetypes.knight import Knight
+from .piecetypes.bishop import Bishop
+from .piecetypes.queen import Queen
+from .piecetypes.king import King
 
 # Creates the Pieces of the chessboard
 class Pieces:
