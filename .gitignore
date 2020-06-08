@@ -1,7 +1,9 @@
-# Default ignored files
+# Ignored files
 /shelf/
 /workspace.xml
 /.idea
 /.vscode
-/chess-ui/__pycache__
-__pycache__
+*__pycache__/
+#**/__pycache__/
+/chess-ui/chessboard\_parts/__pycache__
+/chess-ui/chessboardparts/pieceTypes/__pycache__
