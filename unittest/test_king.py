@@ -1,11 +1,9 @@
 import pygame, unittest,sys
-from .king import King
-sys.path.append('../chessboard_parts/')
-from .tiles import Tiles
+from ..childPiece.king import King
 
 # import sys
-# sys.path.append('../../chess-ui')
-# from chessboard_parts.tiles import Tiles
+sys.path.append('../../chess-ui')
+from .chessboard_parts.tiles import Tiles
 # from window import ChessWindow
 # import pygame
 
@@ -20,6 +18,8 @@ class Test_King(unittest.TestCase):
 
 class Test_King_move(Test_King):
     def test_King_move_right(self):
+
+        # no impediments
         self.tile_board.update((3,0), 'King')
         self.assertEquals(self.wking.move_loc((3,0), King, self.tile_board), [(3,1),(4,0), (2,0), (4,1), (2,1)])
         self.tile_board.update((3,0), None)
@@ -32,6 +32,16 @@ class Test_King_move(Test_King):
         self.tile_board.update((0,0), 'King')
         self.assertEquals(self.wking.move_loc((0,0), King, self.tile_board), [(0,1), (1,0), (1,1)])
 
+        # limiting chess piece moves
+        self.tile_board.update((3,0), 'King')
+        self.tile_board.update((3,1), 'Pawn')
+        self.tile_board.update((2,0), 'Bishop')
+        self.tile_board.update((4,0), "Queen")
+        self.tile_board.update((4,1), "Pawn")
+        self.assertEquals(self.wking.move_loc((0,0), King, self.tile_board), [(2,1)])
+
+
+
     def test_King_move_left(self):
         self.tile_board.update((5,0), )
         self.assertEquals(self.wking.move_loc((5,0), King, self.tile_board), [(5,1),(6,0), (4,0), (6,1), (4,1)])
@@ -41,6 +51,13 @@ class Test_King_move(Test_King):
         self.tile_board.update((6,0), None)
         self.tile_board.update((7,0), 'King')
         self.assertEquals(self.wking.move_loc((7,0), King, self.tile_board), [(7,1), (6,0), (6,1)])
+
+        # limiting chess piece moves
+        self.tile_board.update((3,0), 'King')
+        self.tile_board.update((3,1), 'Pawn')
+        self.tile_board.update((2,0), 'Bishop')
+        self.tile_board.update((4,0), "Queen")
+        self.assertEquals(self.wking.move_loc((0,0), King, self.tile_board), [(4,1), (2,1)])
     
     def test_King_move_diagonal(self):
         self.tile_board.update((3,3), 'King')
@@ -54,3 +71,15 @@ class Test_King_move(Test_King):
         self.tile_board.update((1,3), None)
         self.tile_board.update((0,4), 'King')
         self.assertEquals(self.wking.move_loc((0,4), King, self.tile_board), [(4,1), (1,2), (2,3), (3,0), (2,4), (4,0), (2,2), (0,0)])
+        self.tile_board.update((0,4), None)
+    
+    def test_King_no_move(self):
+        self.tile_board.update((0,1), 'Pawn')
+        self.tile_board.update((1,0), 'Bishop')
+        self.tile_board.update((1,1), 'Pawn')
+        self.tile_board.update((0,0), "King")
+        #no valid moves to make
+        self.assertEquals(self.wking.move_loc((0,0), King, self.tile_board), [] )
+
+        
+
